@@ -109,7 +109,7 @@ endforeach()
 endif()
 
 if (NOT RKAIQ_J2S4B_DEV)
-install(TARGETS j2s4b RUNTIME DESTINATION host)
+install(TARGETS j2s4b RUNTIME DESTINATION bin)
 else()
 install(TARGETS j2s4b_dev RUNTIME DESTINATION bin)
 endif()
