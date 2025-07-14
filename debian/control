@@ -59,11 +59,11 @@ Architecture: arm64
 Depends: librkaiq (= ${binary:Version})
 Description: libmediactl
 
-Package: libmediactl-dev
-Section: libdevel
-Architecture: arm64
-Depends: librkaiq (= ${binary:Version})
-Description: libmediactl
+# Package: libmediactl-dev
+# Section: libdevel
+# Architecture: arm64
+# Depends: librkaiq (= ${binary:Version})
+# Description: libmediactl
 
 Package: libispfec
 Section: libdevel
