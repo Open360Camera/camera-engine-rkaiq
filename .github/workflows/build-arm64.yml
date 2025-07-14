@@ -1,0 +1,46 @@
+# This workflow builds your project natively on arm64 using GitHub's hosted runners
+# Save as .github/workflows/build-arm64.yml
+
+name: Build on ARM64
+
+on:
+  push:
+    branches:
+      - jammy
+  pull_request:
+    branches:
+      - jammy
+
+jobs:
+  build-arm64:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential devscripts debhelper fakeroot dput gnupg meson dh-exec cmake
+
+      # Launchpad won't accept unsigned packages, so you have to place
+      # your GPG private key and passphrase, if appropriate. Add such
+      # things to your Secrets.
+      - name: Import GPG
+        uses: crazy-max/ghaction-import-gpg@v3.1.0
+        with:
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+
+      - name: Create orig tarball
+        run: |
+          cd ..
+          tar --exclude-vcs --exclude='./debian' -czf camera-engine-rkaiq-rk3588_6.0x6.1.orig.tar.gz camera-engine-rkaiq
+          cd camera-engine-rkaiq
+
+      - name: Build Debian package
+        run: |
+          debuild -S -sa
+
+      - name: Upload to Launchpad
+        run: dput ppa:monstrofil/camera-engine-rkaiq ../*.changes
