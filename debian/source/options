@@ -1,4 +1,2 @@
 tar-ignore = .git
 diff-ignore
-tar-ignore
-include-binaries
