@@ -1,0 +1,6 @@
+camera-engine-rkaiq-rk3588 (6.0x5.1-1~jammy) jammy; urgency=medium
+
+  * add packaging scripts
+  * move mediactl to shared lib
+
+ -- Monstrofil <shalal545@gmail.com>  Sun, 12 Jul 2025 15:27:26 -0400
