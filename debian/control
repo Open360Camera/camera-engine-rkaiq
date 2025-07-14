@@ -16,11 +16,63 @@ Homepage: https://github.com/rockchip-linux/camera_engine_rkaiq
 Vcs-Git: https://github.com/rockchip-linux/camera_engine_rkaiq
 Vcs-Browser: https://github.com/rockchip-linux/camera_engine_rkaiq
 
-Package: camera-engine-rkaiq-rk3588
+Package: libsmartir
+Section: libdevel
+Architecture: arm64
+Depends: camera-engine-rkaiq-rk3588 (= ${binary:Version})
+Description: isp_fec
+
+Package: libsmartir-dev
+Section: libdevel
+Architecture: arm64
+Depends: camera-engine-rkaiq-rk3588 (= ${binary:Version})
+Description: isp_fec
+
+Package: librkaiq
 Architecture: arm64
 Depends: systemd
-Description: 3A libraries match Rockchip rkisp v30(rk3588).
-Provides: camera-engine-rkaiq-rk3588
-Conflicts: camera-engine-rkaiq-rk3588
-Replaces: camera-engine-rkaiq-rk3588
+Description: 3A libraries match Rockchip rkisp v30(rk3588)
+ This package contains the runtime libraries for the RockChip AIQ camera engine,
+ which provides 3A (Auto-Exposure, Auto-White-Balance, Auto-Focus) functionality
+ for RK3588 ISP.
 
+Package: librkaiq-dev
+Section: libdevel
+Architecture: arm64
+Depends: camera-engine-rkaiq-rk3588 (= ${binary:Version})
+Description: Development files for camera-engine-rkaiq-rk3588
+ This package contains the header files and development libraries needed to
+ build applications that use the RockChip AIQ camera engine.
+ .
+ The RockChip AIQ camera engine provides 3A (Auto-Exposure, Auto-White-Balance,
+ Auto-Focus) functionality for RK3588 ISP.
+
+Package: librkaiq-iqfiles
+Section: libdevel
+Architecture: arm64
+Depends: camera-engine-rkaiq-rk3588 (= ${binary:Version})
+Description: libmediactl
+
+Package: libmediactl
+Section: libdevel
+Architecture: arm64
+Depends: camera-engine-rkaiq-rk3588 (= ${binary:Version})
+Description: libmediactl
+
+Package: libmediactl-dev
+Section: libdevel
+Architecture: arm64
+Depends: camera-engine-rkaiq-rk3588 (= ${binary:Version})
+Description: libmediactl
+
+Package: libispfec
+Section: libdevel
+Architecture: arm64
+Depends: camera-engine-rkaiq-rk3588 (= ${binary:Version})
+Description: isp_fec
+
+Package: libispfec-dev
+Section: libdevel
+Architecture: arm64
+Depends: camera-engine-rkaiq-rk3588 (= ${binary:Version})
+Description: isp_fec
