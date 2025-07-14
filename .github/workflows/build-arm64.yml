@@ -35,7 +35,7 @@ jobs:
       - name: Create orig tarball
         run: |
           cd ..
-          tar --exclude-vcs --exclude='./debian' -czf camera-engine-rkaiq-rk3588_6.0x6.1.orig.tar.gz camera-engine-rkaiq
+          tar --exclude-vcs --exclude='./debian' -czf camera-engine-rkaiq-rk3588_7.0x5.1.orig.tar.gz camera-engine-rkaiq
           cd camera-engine-rkaiq
 
       - name: Build Debian package
