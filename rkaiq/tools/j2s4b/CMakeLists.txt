@@ -90,7 +90,6 @@ foreach(IQPATH ${RKAIQ_IQFILES})
         BYPRODUCTS ${TAGT_NAME}
         DEPENDS j2s4b
         )
-    install(PROGRAMS "${CMAKE_BINARY_DIR}/${TAGT_NAME}" DESTINATION usr/share/iqfiles)
 endforeach()
 
 foreach(IQPATH ${RKAIQ_AINR_IQFILES})
@@ -106,8 +105,6 @@ foreach(IQPATH ${RKAIQ_AINR_IQFILES})
         BYPRODUCTS ${TAGT_AINR_NAME}
         DEPENDS j2s4b
         )
-    install(PROGRAMS "${CMAKE_BINARY_DIR}/${TAGT_AINR_NAME}" DESTINATION
-		usr/share/iqfiles/ainr RENAME ${TAGT_NAME})
 endforeach()
 endif()
 
