@@ -12,6 +12,17 @@ set(CMAKE_C_EXTENSIONS ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+add_link_options( 
+    -Wno-error=stringop-overflow
+    -Wno-error=odr
+    -Wno-error
+    -Wno-error=maybe-uninitialized
+)
+add_compile_options(
+    -Wno-error=stringop-overflow
+    -Wno-error=odr
+)
+
 if (ARCH STREQUAL "arm")
     add_compile_options(
         -march=armv7-a
@@ -26,8 +37,8 @@ endif()
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     if (ARCH STREQUAL "arm")
-        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mthumb -mthumb-interwork")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mthumb -mthumb-interwork")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     endif()
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu11")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
