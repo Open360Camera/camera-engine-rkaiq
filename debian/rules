@@ -43,3 +43,85 @@ override_dh_auto_configure:
 
 override_dh_auto_test:
 override_dh_installdocs:
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/tmp
+
+override_dh_install:
+	# Move files to their respective packages
+	dh_movefiles -prkaiqd \
+		usr/bin/rkaiq_3A_server \
+		lib/systemd/system/rkaiqd.service
+
+	dh_movefiles -prkaiq-toold \
+		usr/bin/rkaiq_tool_server \
+		lib/systemd/system/rkaiq-toold.service
+
+	dh_movefiles -plibsmartir \
+		usr/lib/libsmartIr.so*
+
+	dh_movefiles -plibsmartir-dev \
+		usr/include/rkaiq/smartIr \
+		usr/lib/libsmartIr.a
+
+	dh_movefiles -plibrkrawstream \
+		usr/lib/librkrawstream.so*
+
+	dh_movefiles -plibrkaiq \
+		usr/lib/librkaiq.so*
+
+	dh_movefiles -plibrkaiq-dev \
+		usr/include/rkaiq \
+		usr/lib/librkaiq.a
+
+	dh_movefiles -plibmediactl \
+		usr/lib/libmediactl.so*
+
+	dh_movefiles -plibispfec \
+		usr/lib/libIspFec.so*
+
+	dh_movefiles -plibispfec-dev \
+		usr/include/IspFec \
+		usr/lib/libIspFec.a
+
+	dh_movefiles -plibrkaiq-iqfiles \
+		etc/iqfiles
+
+	# Move files to their respective packages
+	dh_movefiles -prkaiqd \
+		usr/bin/rkaiq_3A_server \
+		lib/systemd/system/rkaiqd.service
+
+	dh_movefiles -prkaiq-toold \
+		usr/bin/rkaiq_tool_server \
+		lib/systemd/system/rkaiq-toold.service
+
+	dh_movefiles -plibsmartir \
+		usr/lib/libsmartIr.so*
+
+	dh_movefiles -plibsmartir-dev \
+		usr/include/rkaiq/smartIr \
+		usr/lib/libsmartIr.a
+
+	dh_movefiles -plibrkrawstream \
+		usr/lib/librkrawstream.so*
+
+	dh_movefiles -plibrkaiq \
+		usr/lib/librkaiq.so*
+
+	dh_movefiles -plibrkaiq-dev \
+		usr/include/rkaiq \
+		usr/lib/librkaiq.a
+
+	dh_movefiles -plibmediactl \
+		usr/lib/libmediactl.so*
+
+	dh_movefiles -plibispfec \
+		usr/lib/libIspFec.so*
+
+	dh_movefiles -plibispfec-dev \
+		usr/include/IspFec \
+		usr/lib/libIspFec.a
+
+	dh_movefiles -piqfiles \
+		etc/iqfiles
