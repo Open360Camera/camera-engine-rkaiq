@@ -1,4 +1,4 @@
-camera-engine-rkaiq-rk3588 (7.0x5.1-7~jammy) jammy; urgency=medium
+camera-engine-rkaiq-rk3588 (7.0x5.1-8~jammy) jammy; urgency=medium
 
   * add packaging scripts
   * move mediactl to shared lib
