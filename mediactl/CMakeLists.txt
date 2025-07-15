@@ -9,6 +9,7 @@ set(MEDIACTL_SRC
 add_library(mediactl SHARED ${MEDIACTL_SRC})
 
 # If you have headers, you can add them here
-# target_include_directories(mediactl PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(mediactl PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 install(TARGETS mediactl LIBRARY DESTINATION lib)
+install(FILES mediactl.h DESTINATION include)
