@@ -147,7 +147,6 @@ add_custom_target(
     -B"host_tool"
     -H"${rk_aiq_SOURCE_DIR}/tools/j2s4b"
     COMMAND ${CMAKE_COMMAND} --build host_tool
-    COMMAND make -C host_tool install
 	DEPENDS j2s_parser
     )
 
