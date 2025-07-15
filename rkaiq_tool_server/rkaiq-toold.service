@@ -1,11 +1,11 @@
 [Unit]
 Description=Enable Rockchip camera engine rkaiq
 DefaultDependencies=no
+Requires=rkaiqd.service
 
 [Service]
-Type=forking
-ExecStart=/etc/init.d/S40rkaiq_3A start
-ExecStop=/etc/init.d/S40rkaiq_3A stop
+Type=simple
+ExecStart=/usr/bin/rkaiq_tool_server
 
 [Install]
 WantedBy=sysinit.target

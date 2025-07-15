@@ -161,6 +161,9 @@ add_executable(rkaiq_tool_server ${RKAIQ_TOOL_SERVER_SOURCE})
 target_link_libraries(rkaiq_tool_server pthread)
 install(TARGETS rkaiq_tool_server RUNTIME DESTINATION bin)
 
+set(SERVICE_NAME rkaiq-toold.service)
+install(FILES rkaiq-toold.service DESTINATION ../lib/systemd/system/)
+
 option(BUILD_TEST "build test demo" OFF)
 if(BUILD_TEST)
 	add_subdirectory(test)

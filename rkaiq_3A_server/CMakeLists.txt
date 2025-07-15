@@ -135,8 +135,8 @@ ADD_EXECUTABLE(rkaiq_3A_server rkaiq_3A_server.cpp)
 
 target_link_libraries(rkaiq_3A_server ${RK_AIQ_LIB} pthread dl)
 
-set(SERVICE_NAME rkaiq_3A.service)
-install(FILES rkaiq_3A.service DESTINATION ../lib/systemd/system/)
+set(SERVICE_NAME rkaiqd.service)
+install(FILES rkaiqd.service DESTINATION ../lib/systemd/system/)
 
 #FIXME: buildroot and ipc sdk shall use the same setting
 if(BUILDROOT_BUILD_PROJECT)
@@ -144,19 +144,9 @@ if(BUILDROOT_BUILD_PROJECT)
 		RUNTIME DESTINATION /bin
 		LIBRARY DESTINATION /usr/lib
 		)
-
-	install(FILES S40rkaiq_3A DESTINATION /etc/init.d/
-		PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ
-		GROUP_EXECUTE GROUP_READ
-		WORLD_EXECUTE WORLD_READ)
 else()
 	install(TARGETS rkaiq_3A_server
 		RUNTIME DESTINATION "bin"
 		LIBRARY DESTINATION "usr/lib"
 		)
-
-	install(FILES S40rkaiq_3A DESTINATION "../etc/init.d"
-		PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ
-		GROUP_EXECUTE GROUP_READ
-		WORLD_EXECUTE WORLD_READ)
 endif()
